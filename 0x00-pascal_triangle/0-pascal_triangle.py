@@ -4,13 +4,21 @@ def pascal_triangle(n):
 
     triangle = []
 
+    # Using a 'for' loop to iterate through the rows
     for i in range(n):
-        # Start each row with a list containing 1
         row = [1] * (i + 1)
 
-        # Each element (except the first and last) is the sum of the two elements above it
-        for j in range(1, i):
-            row[j] = triangle[i - 1][j - 1] + triangle[i - 1][j]
+        # Using a 'while' loop to handle middle elements
+        j = 1
+        while j < i:
+            if j == 0 or j == i:
+                row[j] = 1
+            elif j > 0 and j < i:
+                row[j] = triangle[i - 1][j - 1] + triangle[i - 1][j]
+            else:
+                row[j] = 1
+            j += 1
 
         triangle.append(row)
+
     return triangle
