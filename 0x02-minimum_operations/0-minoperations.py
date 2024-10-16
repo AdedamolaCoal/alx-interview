@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 """
-  Calculate the fewest number of operations needed to result in exactly n 'H' characters
-  in the text file, starting with a single 'H'. Operations allowed are 'Copy All' and 'Paste'.
+This module defines a function minOperations that calculates the fewest
+number of operations needed to result in exactly n 'H' characters in
+a text file, starting with one 'H'. The only allowed operations are:
+'Copy All' and 'Paste'.
 """
 
 
