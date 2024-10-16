@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-Calculate the fewest number of operations needed to result in exactly n 'H' characters
-in the text file, starting with a single 'H'. Operations allowed are 'Copy All' and 'Paste'.
+  Calculate the fewest number of operations needed to result in exactly n 'H' characters
+  in the text file, starting with a single 'H'. Operations allowed are 'Copy All' and 'Paste'.
 """
 
 
