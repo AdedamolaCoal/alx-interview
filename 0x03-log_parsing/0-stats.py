@@ -1,8 +1,9 @@
 #!/usr/bin/python3
-"""log parsing script"""
+"""log parsing script into another file"""
 
 import sys
 import signal
+
 
 total_file_size = 0
 status_codes = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
@@ -10,7 +11,9 @@ line_count = 0
 
 
 def print_statistics():
-    """Prints the total file size and the number of occurrences of each status code."""
+    """Prints the total file size and the number of
+    occurrences of each status code.
+    """
     print(f"File size: {total_file_size}")
     for code in sorted(status_codes.keys()):
         if status_codes[code] > 0:
@@ -18,7 +21,9 @@ def print_statistics():
 
 
 def handle_interrupt(signal, frame):
-    """Handles the keyboard interrupt (CTRL + C) to print the stats before exiting."""
+    """Handles the keyboard interrupt (CTRL + C)
+    to print the stats before exiting.
+    """
     print_statistics()
     sys.exit(0)
 
