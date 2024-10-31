@@ -3,13 +3,16 @@
 
 def validUTF8(data):
     """
-    Determines if a given data set represents a valid UTF-8 encoding.
+    Determines if a given data set
+    represents a valid UTF-8 encoding.
 
     Args:
-        data (list): A list of integers, each representing a byte of data.
+        data (list): A list of integers,
+        each representing a byte of data.
 
     Returns:
-        bool: True if data is a valid UTF-8 encoding, else False.
+        bool: True if data is a valid UTF-8 encoding,
+        else False.
     """
     num_bytes = 0
     mask1 = 1 << 7  # 10000000
@@ -31,7 +34,8 @@ def validUTF8(data):
             if num_bytes == 1 or num_bytes > 4:
                 return False
         else:
-            # For subsequent bytes, check if they follow the pattern 10xxxxxx
+            # For subsequent bytes, check if they
+            # follow the pattern 10xxxxxx
             if not (byte & mask1 and not (byte & mask2)):
                 return False
 
