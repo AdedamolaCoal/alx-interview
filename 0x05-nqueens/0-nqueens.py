@@ -1,10 +1,20 @@
 #!/usr/bin/python3
+"""N-queens problem solver."""
 
 import sys
 
 
 def is_valid(board, row, col):
-    """Check if placing a queen at (row, col) is safe."""
+    """Check if placing a queen at (row, col) is safe.
+    
+    Args:
+        board (list): The current state of the board.
+        row (int): The row where the queen is being placed.
+        col (int): The column where the queen is being placed.
+    
+    Returns:
+        bool: True if placing a queen at (row, col) is safe, else False.
+    """
     for i in range(row):
         if board[i] == col or \
            board[i] - i == col - row or \
@@ -13,7 +23,14 @@ def is_valid(board, row, col):
     return True
 
 def solve_nqueens(N, row, board, solutions):
-    """Recursive backtracking to find all solutions."""
+    """Recursive backtracking to find all solutions.
+
+    Args:
+        N (int): The size of the board.
+        row (int): The current row being processed.
+        board (list): The current state of the board.
+        solutions (list): The list of solutions found.
+    """
     if row == N:
         solutions.append([[i, board[i]] for i in range(N)])
         return
@@ -23,7 +40,10 @@ def solve_nqueens(N, row, board, solutions):
             solve_nqueens(N, row + 1, board, solutions)
 
 def main():
-    """verifies the input and calls the solve_nqueens function."""
+    """verifies the input and calls the solve_nqueens function.
+
+    Returns:
+        None"""
     if len(sys.argv) != 2:
         print("Usage: nqueens N")
         sys.exit(1)
