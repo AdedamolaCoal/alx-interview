@@ -3,7 +3,7 @@ const request = require('request');
 
 const movieId = process.argv[2];
 if (!movieId) {
-  console.error('Usage: ./0-starwars_characters.js <Movie_ID>');
+  console.error('Please enter a movie ID.');
   process.exit(1);
 }
 
