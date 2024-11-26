@@ -19,11 +19,24 @@ def makeChange(coins, total):
     if total <= 0:
         return 0
 
-    # Initialize DP array
-    dp = [float('inf')] * (total + 1)
-    dp[0] = 0  # Base case
+    # Sort coins in descending order for greedy optimization
+    coins.sort(reverse=True)
 
-    # Populate the DP array
+    # Try greedy approach
+    remaining = total
+    count = 0
+    for coin in coins:
+        if coin <= remaining:
+            count += remaining // coin
+            remaining %= coin
+
+    if remaining == 0:
+        return count
+
+    # Fall back to DP if greedy fails
+    dp = [float('inf')] * (total + 1)
+    dp[0] = 0
+
     for coin in coins:
         for i in range(coin, total + 1):
             dp[i] = min(dp[i], dp[i - coin] + 1)
